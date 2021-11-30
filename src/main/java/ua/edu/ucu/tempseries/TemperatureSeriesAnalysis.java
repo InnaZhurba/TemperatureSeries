@@ -16,8 +16,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        if(temperatureSeries == null || temperatureSeries.length==0)
-            throw new IllegalArgumentException();
+        checking();
 
         checkSeriesIsValid(temperatureSeries);
         this.length = temperatureSeries.length;
@@ -39,8 +38,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
+        checking();
 
         double sum =0;
         double average =average();
@@ -50,19 +48,34 @@ public class TemperatureSeriesAnalysis {
 
         return sum/length;
     }
+    private void checking(){
+        if(temperatureSeries.length==0 || temperatureSeries==null) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public double min() {
-        return 0;
+       checking();
+
+        double min= Double.POSITIVE_INFINITY;
+        for(double temp:temperatureSeries)
+            if(temp<min)
+                min = temp;
+        return min;
     }
 
     public double max() {
-        return 0;
+        checking();
+
+        double max= Double.NEGATIVE_INFINITY;
+        for(double temp:temperatureSeries)
+            if(temp>max)
+                max = temp;
+        return max;
     }
 
     public double findTempClosestToZero() {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
-        //загалом цю перевірку теж можна винести у фунцію окрему
+        checking();
 
         double minDiff = Double.POSITIVE_INFINITY;
         //double closestValue;
@@ -79,8 +92,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
+       checking();
 
         double closestValue = Double.POSITIVE_INFINITY;
 
@@ -92,8 +104,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
+        checking();
 
         int counter=0;
         double newArray[];
@@ -113,8 +124,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
+        checking();
 
         int counter=0;
         double newArray[];
@@ -133,8 +143,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if(temperatureSeries.length==0 || temperatureSeries==null)
-            throw new IllegalArgumentException();
+        checking();
 
         //if(summaryStatistics == null)
         //    throw new IllegalArgumentException();

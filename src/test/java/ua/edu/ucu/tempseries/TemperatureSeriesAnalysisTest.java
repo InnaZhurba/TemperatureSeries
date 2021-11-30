@@ -119,4 +119,30 @@ public class TemperatureSeriesAnalysisTest {
         // compare expected result with actual result
         assertEquals(expResult,actualResult, 0.001);
     }
+
+    @Test
+    public void testMin() {
+        double[] temperatureSeries = {-1.0,-0.2,-0.1, 0.2,1.0,-0.2};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = -1.0;
+
+        // call tested method
+        double actualResult = seriesAnalysis.min();
+
+        // compare expected result with actual result
+        assertEquals(expResult,actualResult, 0.001);
+    }
+
+    @Test
+    public void testMax() {
+        double[] temperatureSeries = {-1.0,-0.2,-0.1, 0.2,1.0,-0.2};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        double expResult = 1.0;
+
+        // call tested method
+        double actualResult = seriesAnalysis.max();
+
+        // compare expected result with actual result
+        assertEquals(expResult,actualResult, 0.001);
+    }
 }

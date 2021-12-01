@@ -23,10 +23,10 @@ public class TemperatureSeriesAnalysis {
                         temperatureSeries.length);
     }
     public void checkSeriesIsValid(double[] tempSeries) {
-        final int MinTemp = -273;
+        final int MIN = -273;
         for (double temperatureSery : tempSeries) {
 
-            if (temperatureSery <= MinTemp) {
+            if (temperatureSery <= MIN) {
                 throw new InputMismatchException();
             }
         }

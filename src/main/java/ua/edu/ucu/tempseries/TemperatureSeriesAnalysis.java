@@ -64,7 +64,7 @@ public class TemperatureSeriesAnalysis {
         double min = Double.POSITIVE_INFINITY;
 
         for (double temp: temperatureSeries) {
-            if (temp < min){
+            if (temp < min) {
                 min = temp;
             }
         }
@@ -92,8 +92,8 @@ public class TemperatureSeriesAnalysis {
         //можна просто викликати findTempClosestToValue(0)
         for (double temp: temperatureSeries) {
 
-            if(Math.abs(temp-0) < Math.abs(minDiff-0)
-                    || (temp == -minDiff && temp>0)) {
+            if (Math.abs(temp-0) < Math.abs(minDiff-0)
+                    || (temp == -minDiff && temp > 0)) {
                 minDiff = temp;
             }
             /*if(temp>0 && Math.abs(temp-0)==minDiff){
@@ -123,8 +123,8 @@ public class TemperatureSeriesAnalysis {
 
         int counter = 0;
         double[] newArray;
-        for (int i=0; i<length; i++) {
-            if(temperatureSeries[i] < tempValue) {
+        for (int i = 0; i < length; i++) {
+            if (temperatureSeries[i] < tempValue) {
                 //double template[] = new double[i+1];
                 double temp = temperatureSeries[i];
                 temperatureSeries[i] = temperatureSeries[counter];
@@ -144,8 +144,8 @@ public class TemperatureSeriesAnalysis {
 
         int counter = 0;
         double[] newArray;
-        for (int i=0; i<length; i++) {
-            if(temperatureSeries[i] >= tempValue) {
+        for (int i = 0; i < length; i++) {
+            if (temperatureSeries[i] >= tempValue) {
                 //double template[] = new double[i+1];
                 double temp = temperatureSeries[i];
                 temperatureSeries[i] = temperatureSeries[counter];
@@ -171,7 +171,7 @@ public class TemperatureSeriesAnalysis {
     public int addTemps(double... temps) {
         checkSeriesIsValid(temps);
 
-        if(length + temps.length >= temperatureSeries.length) {
+        if (length + temps.length >= temperatureSeries.length) {
             changeSizeArr();
         }
 

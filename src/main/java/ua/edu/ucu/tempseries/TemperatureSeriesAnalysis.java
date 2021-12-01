@@ -46,7 +46,7 @@ public class TemperatureSeriesAnalysis {
         double average =average();
 
         for(double temp: temperatureSeries) {
-            sum += Math.pow(temp - average, 2);
+            sum += (temp - average)*(temp - average);
         }
 
         return sum/length;

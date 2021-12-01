@@ -1,7 +1,5 @@
 package ua.edu.ucu.tempseries;
 
-import lombok.Getter;
-
 import java.util.Arrays;
 import java.util.InputMismatchException;
 
@@ -23,7 +21,7 @@ public class TemperatureSeriesAnalysis {
         this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
     }
     public void checkSeriesIsValid(double[] temperatureSeries){
-        int minTemp = -273;
+        final int minTemp = -273;
         for (double temperatureSery : temperatureSeries) {
 
             if (temperatureSery <= minTemp) {
@@ -50,9 +48,9 @@ public class TemperatureSeriesAnalysis {
 
         return sum/length;
     }
-    private void checking(double[] temperatureSeries){
+    private void checking(double[] tempSeries){
 
-        if(temperatureSeries.length==0) {
+        if(tempSeries.length==0) {
             throw new IllegalArgumentException();
         }
     }

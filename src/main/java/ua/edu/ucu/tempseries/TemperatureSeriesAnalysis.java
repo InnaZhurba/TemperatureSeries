@@ -16,7 +16,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        checking();
+        checking(temperatureSeries);
 
         checkSeriesIsValid(temperatureSeries);
         this.length = temperatureSeries.length;
@@ -38,7 +38,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        checking();
+        checking(this.temperatureSeries);
 
         double sum =0;
         double average =average();
@@ -48,14 +48,14 @@ public class TemperatureSeriesAnalysis {
 
         return sum/length;
     }
-    private void checking(){
+    private void checking(double[] temperatureSeries){
         if(temperatureSeries.length==0 || temperatureSeries==null) {
             throw new IllegalArgumentException();
         }
     }
 
     public double min() {
-       checking();
+       checking(this.temperatureSeries);
 
         double min= Double.POSITIVE_INFINITY;
         for(double temp:temperatureSeries)
@@ -65,7 +65,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        checking();
+        checking(this.temperatureSeries);
 
         double max= Double.NEGATIVE_INFINITY;
         for(double temp:temperatureSeries)
@@ -75,7 +75,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
-        checking();
+        checking(this.temperatureSeries);
 
         double minDiff = Double.POSITIVE_INFINITY;
         //double closestValue;
@@ -92,7 +92,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-       checking();
+       checking(this.temperatureSeries);
 
         double closestValue = Double.POSITIVE_INFINITY;
 
@@ -104,7 +104,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        checking();
+        checking(this.temperatureSeries);
 
         int counter=0;
         double newArray[];
@@ -124,7 +124,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        checking();
+        checking(this.temperatureSeries);
 
         int counter=0;
         double newArray[];
@@ -143,7 +143,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        checking();
+        checking(this.temperatureSeries);
 
         //if(summaryStatistics == null)
         //    throw new IllegalArgumentException();

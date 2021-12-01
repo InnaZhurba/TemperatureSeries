@@ -20,11 +20,11 @@ public class TemperatureSeriesAnalysis {
         this.length = temperatureSeries.length;
         this.temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length);
     }
-    public void checkSeriesIsValid(double[] temperatureSeries){
-        final int minTemp = -273;
-        for (double temperatureSery : temperatureSeries) {
+    public void checkSeriesIsValid(double[] tempSeries){
+        final int MinTemp = -273;
+        for (double temperatureSery : tempSeries) {
 
-            if (temperatureSery <= minTemp) {
+            if (temperatureSery <= MinTemp) {
                 throw new InputMismatchException();
             }
         }

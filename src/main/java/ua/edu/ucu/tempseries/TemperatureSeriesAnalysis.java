@@ -22,7 +22,7 @@ public class TemperatureSeriesAnalysis {
                 Arrays.copyOf(temperatureSeries,
                         temperatureSeries.length);
     }
-    public void checkSeriesIsValid(double[] tempSeries){
+    public void checkSeriesIsValid(double[] tempSeries) {
         final int MinTemp = -273;
         for (double temperatureSery : tempSeries) {
 
@@ -51,7 +51,7 @@ public class TemperatureSeriesAnalysis {
 
         return sum/length;
     }
-    private void checking(double[] tempSeries){
+    private void checking(double[] tempSeries) {
 
         if(tempSeries.length==0) {
             throw new IllegalArgumentException();
@@ -90,10 +90,10 @@ public class TemperatureSeriesAnalysis {
         double minDiff = Double.POSITIVE_INFINITY;
         //double closestValue;
         //можна просто викликати findTempClosestToValue(0)
-        for(double temp: temperatureSeries){
+        for(double temp: temperatureSeries) {
 
             if(Math.abs(temp-0) < Math.abs(minDiff-0)
-                    || (temp == -minDiff && temp>0)){
+                    || (temp == -minDiff && temp>0)) {
                 minDiff = temp;
             }
             /*if(temp>0 && Math.abs(temp-0)==minDiff){
@@ -123,7 +123,7 @@ public class TemperatureSeriesAnalysis {
 
         int counter=0;
         double[] newArray;
-        for(int i=0;i<length;i++){
+        for(int i=0; i<length; i++) {
             if(temperatureSeries[i]<tempValue) {
                 //double template[] = new double[i+1];
                 double temp = temperatureSeries[i];
@@ -143,8 +143,8 @@ public class TemperatureSeriesAnalysis {
 
         int counter=0;
         double[] newArray;
-        for(int i=0;i<length;i++){
-            if(temperatureSeries[i]>=tempValue) {
+        for(int i=0; i<length; i++) {
+            if(temperatureSeries[i] >= tempValue) {
                 //double template[] = new double[i+1];
                 double temp = temperatureSeries[i];
                 temperatureSeries[i]= temperatureSeries[counter];
@@ -164,7 +164,7 @@ public class TemperatureSeriesAnalysis {
         //if(summaryStatistics == null){
         //    throw new IllegalArgumentException();}
 
-        return new TempSummaryStatistics(average(),deviation(),min(),max());
+        return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
     public int addTemps(double... temps) {
@@ -183,7 +183,7 @@ public class TemperatureSeriesAnalysis {
 
         return length;
     }
-    public void changeSizeArr(){
+    public void changeSizeArr() {
         double[] newTemperatureSeries = new double[temperatureSeries.length*2];
         System.arraycopy(temperatureSeries, 0,
                 newTemperatureSeries, 0,
